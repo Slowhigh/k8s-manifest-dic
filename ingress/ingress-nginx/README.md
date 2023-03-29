@@ -23,3 +23,10 @@ $ kubectl apply -f ingress.yml
 # demo.localdev.me 접속 시 `It works!` 출력된 페이지로 연결된다.
 ```
 
+
+
+```bash
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=demo.com"
+
+$ kubectl create secret tls demo-secret --cert tls.crt --key tls.key 
+```
